@@ -1,0 +1,41 @@
+<h1 class="pt-5 pb-3 text-center" >Welcome to cat gallery</h1>
+
+
+
+
+<div class="container">
+  <div class="row pb-3">
+
+    <div class="col-1"></div>
+    <div class="col-2 pr-2">
+      <select [(ngModel)]="selectedBreed" class="form-select">
+        <option ngValue="all" ngselected>all</option>
+        <option  *ngFor="let c of listbreeds" [ngValue]="c.id">{{c.name}}</option>
+      </select>
+    </div>
+    <div  class="col-2">
+      <label>Cat breed</label>
+    </div>
+    <div class=" d-grid gap-2 col-2">
+      <button type="button" class="btn btn-outline-primary " (click)="search()"> Search</button>
+    </div>
+    <div class="col-3 text-end pr-2">
+      <label>Number of pictures per page</label>
+    </div>
+    <div class="col-1">
+      <select [(ngModel)]="selectedLimit" class="form-select">
+        <option value="6">6</option>
+        <option value="12" selected>12</option>
+        <option value="18">18</option>
+        <option value="24">24</option>
+      </select>
+    </div>
+
+  </div>
+  <div class="col-1"></div>
+  <div class="row row-cols-md-1 row-cols-lg-2 row-cols-xxl-3 mx-auto pb-3">
+
+    <app-image *ngFor="let itlistimages of listimages" [listimagesimage]="itlistimages"> </app-image>
+
+  </div>
+</div>
